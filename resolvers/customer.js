@@ -11,9 +11,9 @@ export default {
     },
   },
 
-// =============================================================================
-//? MUTIATIONS
-// =============================================================================
+  // =============================================================================
+  //? MUTATIONS
+  // =============================================================================
   Mutation: {
     createCustomer: async (parent, { customerName }, { models }) => {
       const customer = {
@@ -25,6 +25,8 @@ export default {
 
     deleteCustomer: async (parent, { id }, { models }) => {
       return await models.Customer.destroy({ where: { id } });
+      // const response = `Customer with id: '${id}' deleted!`;
+      // return `Customer with id: '${id}' deleted!`;
     },
 
     updateCustomer: async (parent, { id, customerName }, { models }) => {

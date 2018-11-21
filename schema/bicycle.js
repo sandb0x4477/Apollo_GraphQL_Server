@@ -7,10 +7,16 @@ export default gql`
     bicycle(id: ID!): Bicycle
   }
 
+  extend type Mutation {
+    createBicycle(bicycleModel: String!, bicycleRate: Float!): Bicycle!
+    deleteBicycle(id: ID!): Boolean!
+    updateBicycle(id: ID!, bicycleModel: String!, bicycleRate: Float!): Bicycle!
+  }
+
   type Bicycle {
     id: ID!
-    bicyclemmodel: String!
-    bicyclerate: Float!
+    bicycleModel: String!
+    bicycleRate: Float!
   }
-  
+
 `;

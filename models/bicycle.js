@@ -4,7 +4,7 @@ const bicycle = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     bicycleRate: {
-      type: DataTypes.DECIMAL(2, 2),
+      type: DataTypes.DECIMAL(10, 2),
     }
 
   });
