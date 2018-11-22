@@ -15,25 +15,35 @@ export default {
   // ? MUTATIONS
   // =============================================================================
   Mutation: {
-    createRental: async (parent, { startDate, endDate, rentalFee }, { models }) => {
+    createRental: async (parent, { startDate, endDate, rentalFee, bicycleId, customerId }, { models }) => {
       const rental = {
         startDate,
         endDate,
-        rentalFee
+        rentalFee,
+        bicycleId,
+        customerId
       };
 
       return await models.Rental.create(rental);
     },
 
-    // Rental: {
-    //   bicycle: async (rental, args, { models }) => {
-    //     return await models.Bicycle.findAll({
-    //       where: {
-    //         rentalId: rental.id,
-    //       }
-    //     });
-    //   }
-    // }
 
-  }
+  },
+
+  Rental: {
+    bicycle: async (rental, args, { models }) => {
+      return await models.Bicycle.findOne({
+        where: {
+          id: rental.bicycleId,
+        }
+      });
+    },
+    customer: async (rental, args, { models }) => {
+      return await models.Customer.findOne({
+        where: {
+          id: rental.customerId,
+        }
+      });
+    }
+  },
 }

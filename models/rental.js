@@ -12,9 +12,10 @@ const rental = (sequelize, DataTypes) => {
 
   });
 
-  // Rental.associate = models => {
-  //   Rental.hasOne(models.Bicycle, { foreignKey: 'bicycleId', onDelete: 'CASCADE' });
-  // };
+  Rental.associate = models => {
+    Rental.belongsTo(models.Bicycle, { foreignKey: 'bicycleId', onDelete: 'CASCADE' });
+    Rental.belongsTo(models.Customer, { foreignKey: 'customerId', onDelete: 'CASCADE' });
+  };
 
   return Rental;
 }

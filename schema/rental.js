@@ -8,7 +8,7 @@ export default gql`
   }
 
   extend type Mutation {
-    createRental(startDate: Date!, endDate: Date!, rentalFee: Float!): Rental!
+    createRental(startDate: Date!, endDate: Date!, rentalFee: Float!, bicycleId: String, customerId: String): Rental!
     # deleteBicycle(id: ID!): Boolean!
     # updateBicycle(id: ID!, Make: String!, Model: String!, Rate: Float!): Bicycle!
   }
@@ -18,7 +18,8 @@ export default gql`
     startDate: Date!
     endDate: Date!
     rentalFee: Float!
-    # bicycle: Bicycle!
+    bicycle: Bicycle!
+    customer: Customer!
   }
 
 `;
