@@ -3,6 +3,7 @@ import { gql } from 'apollo-server-express';
 import customerSchema from './customer';
 import bicycleSchema from './bicycle';
 import rentalSchema from './rental';
+import userSchema from './user';
 
 const linkSchema = gql`
 
@@ -19,4 +20,4 @@ const linkSchema = gql`
   }
 `;
 
-export default [linkSchema, customerSchema, bicycleSchema, rentalSchema];
+export default [linkSchema, customerSchema, bicycleSchema, rentalSchema, userSchema];

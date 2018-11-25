@@ -9,10 +9,6 @@ const bicycle = (sequelize, DataTypes) => {
 
   });
 
-  // Bicycle.associate = models => {
-  //   Bicycle.hasOne(models.Rental);
-  // };
-
   return Bicycle;
 }
 

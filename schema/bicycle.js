@@ -10,7 +10,7 @@ export default gql`
   extend type Mutation {
     createBicycle(bicycleModel: String!, bicycleRate: Float!): Bicycle!
     deleteBicycle(id: ID!): Boolean!
-    updateBicycle(id: ID!, bicycleModel: String!, bicycleRate: Float!): Bicycle!
+    updateBicycle(id: ID!, bicycleModel: String, bicycleRate: Float): Bicycle!
   }
 
   type Bicycle {
