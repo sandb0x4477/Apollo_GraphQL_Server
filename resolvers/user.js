@@ -42,6 +42,7 @@ export default {
 
       const token = jwt.sign({
         user: _.pick(user, ['id', 'username']),
+        roles: ['admin']
       }, SECRET, { expiresIn: '1h' });
 
       return { token: token };

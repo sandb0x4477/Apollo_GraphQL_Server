@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import cors from 'cors';
 import express from 'express';
+import { bodyParserGraphQL } from 'body-parser-graphql'
 import jwt from 'jsonwebtoken';
 import { ApolloServer } from 'apollo-server-express';
 
@@ -12,7 +13,8 @@ const app = express();
 const SECRET = process.env.SECRET;
 
 const getAuthUser = async req => {
-  const token = req.headers.authorization || '';
+  // const token = req.headers.authorization || '';
+  const token = req.headers['x-token'];
 
   if (token) {
     try {
@@ -25,7 +27,8 @@ const getAuthUser = async req => {
   }
 };
 
-app.use(cors('*'));
+app.use(cors());
+app.use(bodyParserGraphQL())
 // app.use(addUser);
 
 

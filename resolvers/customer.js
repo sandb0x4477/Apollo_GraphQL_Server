@@ -3,7 +3,13 @@ export default {
   // ? QUERIES
   // ===========================================================================
   Query: {
-    customers: async (parent, args, { models }) => {
+    customers: async (parent, args, { models, authUser }) => {
+      console.log('authUser', authUser);
+      if (!authUser || !authUser.roles.includes('admin')) {
+        throw new Error(
+          'Your session expired. Sign in again.',
+        );
+      }
       return await models.Customer.findAll();
     },
     customer: async (parent, { id }, { models }) => {
